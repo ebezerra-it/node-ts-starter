@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --watch \"*.ts\" --exec \"ts-node\" ./src/index.ts",
+    "dev": "docker-compose up",
+    "dev-shell": "nodemon --watch \"*.ts\" --exec \"ts-node\" ./src/index.ts",
     "lint": "eslint '**/*.{js,ts}' --fix --cache",
     "postinstall": "rm -f .husky/pre-commit && npx husky init && echo 'yarn lint' >> .husky/pre-commit",
     "rimraf": "./node_modules/rimraf/dist/esm/bin.mjs",

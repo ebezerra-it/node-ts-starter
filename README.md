@@ -59,7 +59,7 @@ npx tsc --init
 3. Adjust tsconfig.json rootDir and outDir:
 ```json
 {
-    ...
+    // ...
     "rootDir": "src",
     "baseUrl": "./",
     "outDir": "build",
@@ -70,8 +70,7 @@ npx tsc --init
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
-
-    ...
+    // ...
 },
 "exclude": ["node_modules"]
 ```
@@ -214,16 +213,39 @@ module.exports = {
   },
 }
 ```
+8. Create Dockerfile and Docker-compose.yml files
+### Dockerfile
+```Dockerfile
+ARG NODE_VERSION=20-alpine
+FROM node:${NODE_VERSION}
+WORKDIR /usr/app
+```
+### Docker-compose.yml
+```yml
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
 
-8. Create .gitignore file
+    #container_name: app
+    volumes:
+      - .:/usr/app
+
+    command: yarn dev-shell
+    #ports:
+    #  - '8001:8001'
+```
+9. Create .gitignore file
 ```text
 node_modules/
 build/
 .husky/
 ```
-9. Update README.md file
+10. Update README.md file
 
-10. Git setup and first commit
+11. Git setup and first commit
 ```bash
 git init
 git remote set-url origin new.git.url/here
