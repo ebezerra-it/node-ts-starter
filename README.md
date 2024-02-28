@@ -44,10 +44,10 @@ npm pkg set your-project-name
 ```bash
 yarn init -y
 
-yarn add -D typescript ts-node nodemon eslint /
+yarn add -D typescript ts-node nodemon eslint husky rimraf /
 @stylistic/eslint-plugin @typescript-eslint/eslint-plugin /
-@typescript-eslint/parser @typescript-eslint/eslint-plugin /
-eslint-plugin-import eslint-plugin-n eslint-plugin-promise /
+@typescript-eslint/parser eslint-plugin-import /
+eslint-plugin-n eslint-plugin-promise /
 eslint-plugin-sort-destructure-keys @types/node
 ```
 
